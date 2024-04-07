@@ -1,6 +1,7 @@
 # main links
 main:
   - title: "Quick-Start Guide"
+    icon: "far fa-newspaper"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

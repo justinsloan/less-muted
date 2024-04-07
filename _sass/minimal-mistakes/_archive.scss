@@ -24,6 +24,8 @@
   a {
     position: relative;
     z-index: 10;
+    color: $muted-link-text-color;
+    text-decoration: none;
   }
 
   a[rel="permalink"] {
@@ -37,6 +39,31 @@
   font-size: $type-size-5;
   color: $muted-text-color;
   border-bottom: 1px solid $border-color;
+
+  + .list__item .archive__item-title {
+    margin-top: 0.5em;
+  }
+}
+
+.title-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.icon-div {
+  width: 1em;
+  padding-right: 1.3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-div {
+  display: flex;
+}
+
+.archive__item-icon {
+  font-size: $type-size-5;
+  color: $muted-text-color;
 
   + .list__item .archive__item-title {
     margin-top: 0.5em;

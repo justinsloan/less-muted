@@ -1,0 +1,3 @@
+{% if post.link %}
+  <p class="page__date"><strong><i class="fas fa-fw fa-link" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].permalink_label | default: "Permalink:" }}</strong> <a href="{{ post.url | relative_url }}" rel="permalink">{{ post.url }}</a></p>
+{% endif %}

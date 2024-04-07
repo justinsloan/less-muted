@@ -18,13 +18,29 @@
       </div>
     {% endif %}
     <h2 class="archive__item-title no_toc" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
-      {% endif %}
+        <div class="title-container">
+        {% for nav in site.data.navigation.main %}
+            {% if nav.title == post.categories.first %}
+              {% if nav.icon %}
+                <div class="icon-div">
+                  <i class="archive__item-icon {{ nav.icon }}"></i>{% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="title-div">
+        {% if post.link %}
+          <a href="{{ post.link }}" rel="permalink">{{ title }}<i class="superscript fas fa-external-link-alt"></i></a><a href="{{ post.url | relative_url }}" rel="permalink"><span class="sr-only">Permalink</span></a>
+        {% else %}
+          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+        {% endif %}
+        </div>
+        </div>
     </h2>
     {% include page__meta.html type=include.type %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.link %}
+        {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html }}</p>{% endif %}
+    {% else %}
+        {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 200 }}</p>{% endif %}
+    {% endif %}
   </article>
 </div>
